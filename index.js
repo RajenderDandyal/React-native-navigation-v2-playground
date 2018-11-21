@@ -15,6 +15,7 @@ import DrawerLeft from './src/screens/DrawerLeft/DrawerLeft';
 import DrawerRight from "./src/screens/DrawerRight/DrawerRight";
 import Home2 from "./src/screens/Home/Home2";
 import Shop2 from "./src/screens/Shop/Shop2";
+import ShopModal from "./src/screens/Modals/ShopModal";
 
 let loadIcons = Promise.all(
     [
@@ -32,6 +33,7 @@ loadIcons.then(() => {
   Navigation.registerComponent(`Shop2`, () => Shop2);
   Navigation.registerComponent(`DrawerLeft`, () => DrawerLeft);
   Navigation.registerComponent(`DrawerRight`, () => DrawerRight);
+  Navigation.registerComponent(`ShopModal`, () => ShopModal);
 })
 
 Navigation.events().registerAppLaunchedListener(() => {

@@ -83,12 +83,34 @@ export default class Shop extends Component {
       }
     });
   }
+  ShowModal = () => {
+    Navigation.showModal({
+      stack: {
+        children: [{
+          component: {
+            name: 'ShopModal',
+            passProps: {
+              modalData: 'stack with one child'
+            },
+            options: {
+              topBar: {
+                title: {
+                  text: 'Modal'
+                }
+              }
+            }
+          }
+        }]
+      }
+    });
+  }
   render() {
     return (
       <View style={styles.container}>
         <Text> Shop </Text>
         <Button title={'toggleDrawer'} onPress={this.hideSideMenu}/>
         <Button title={'Shop2'} onPress={this.handlePress}/>
+        <Button title={'Show Modal'} onPress={this.ShowModal}/>
       </View>
     );
   }
