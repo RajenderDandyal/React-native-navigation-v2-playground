@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Text, StyleSheet, View, Button } from "react-native";
+import React, {Component} from "react";
+import {Text, StyleSheet, View, Button} from "react-native";
 import {Navigation} from "react-native-navigation";
 
 export default class Home extends Component {
@@ -7,33 +7,36 @@ export default class Home extends Component {
     super(props);
     Navigation.events().bindComponent(this); // <== Will be automatically unregistered when unmounted
   }
+
   static options(passProps) {
     return {
       topBar: {
-        rightButtons:[
+        rightButtons: [
           {
             id: 'filter',
             icon: require('../../assets/images/menu.png')
           },
           {
-            id:'filter',
-            icon:require('../../assets/images/menu.png')
+            id: 'filter',
+            icon: require('../../assets/images/menu.png')
           }
-        ] ,
+        ],
 
-        leftButtons:{
+        leftButtons: {
           id: 'menu',
-          icon: require('../../assets/images/menu.png')
+          icon: require('../../assets/images/menu.png'),
+          color:'blue'
         },
-        title:{
-          text:"Home",
+        title: {
+          text: "Home",
         }
       }
     };
   }
-  navigationButtonPressed({ buttonId }) {
+
+  navigationButtonPressed({buttonId}) {
     // will be called when "buttonOne" is clicked
-    if (buttonId === 'menu'){
+    if (buttonId === 'menu') {
       Navigation.mergeOptions(this.props.componentId, {
         sideMenu: {
           left: {
@@ -43,7 +46,7 @@ export default class Home extends Component {
 
       })
     }
-    if (buttonId === 'filter'){
+    if (buttonId === 'filter') {
       Navigation.mergeOptions(this.props.componentId, {
         sideMenu: {
           right: {
@@ -76,13 +79,14 @@ export default class Home extends Component {
   handleStack = () => {
 
   }
+
   render() {
     console.log(this.props);
     return (
-      <View style={styles.container}>
-        <Text> Home </Text>
-        <Button title={'Home2'} onPress={this.handlePress}/>
-      </View>
+        <View style={styles.container}>
+          <Text> Home </Text>
+          <Button title={'Home2'} onPress={this.handlePress}/>
+        </View>
     );
   }
 }
@@ -90,7 +94,6 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#fff',
     justifyContent: "center",
     alignItems: "center"
   }

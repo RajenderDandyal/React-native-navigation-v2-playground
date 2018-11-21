@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Text, StyleSheet, View } from "react-native";
+import React, {Component} from "react";
+import {Text, StyleSheet, View} from "react-native";
 
 export default class DrawerRight extends Component {
   render() {
@@ -15,7 +15,7 @@ export default class DrawerRight extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#fff',
+    backgroundColor: '#fff',
     paddingTop: 25
   }
 });

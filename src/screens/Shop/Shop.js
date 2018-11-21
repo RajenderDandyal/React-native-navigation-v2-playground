@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Text, StyleSheet, View, Button } from "react-native";
+import React, {Component} from "react";
+import {Text, StyleSheet, View, Button} from "react-native";
 import {Navigation} from "react-native-navigation"
 
 export default class Shop extends Component {
@@ -7,33 +7,36 @@ export default class Shop extends Component {
     super(props);
     Navigation.events().bindComponent(this); // <== Will be automatically unregistered when unmounted
   }
+
   static options(passProps) {
     return {
       topBar: {
         buttonColor: 'blue',
-        rightButtons:[
+        rightButtons: [
+          {
+            id: 'filter',
+            icon: require('../../assets/images/filter.png')
+          },
           {
             id: 'filter',
             icon: require('../../assets/images/menu.png')
-          },
-          {
-            id:'filter',
-            icon:require('../../assets/images/menu.png')
           }
-        ] ,
-        leftButtons:{
+        ],
+        leftButtons: {
           id: 'menu',
-          icon: require('../../assets/images/menu.png')
+          icon: require('../../assets/images/menu.png'),
+          color:'blue'
         },
-        title:{
-          text:"Shop",
+        title: {
+          text: "Shop",
         }
       }
     };
   }
-  navigationButtonPressed({ buttonId }) {
+
+  navigationButtonPressed({buttonId}) {
     // will be called when "buttonOne" is clicked
-    if (buttonId === 'menu'){
+    if (buttonId === 'menu') {
       Navigation.mergeOptions(this.props.componentId, {
         sideMenu: {
           left: {
@@ -43,7 +46,7 @@ export default class Shop extends Component {
 
       })
     }
-    if (buttonId === 'filter'){
+    if (buttonId === 'filter') {
       Navigation.mergeOptions(this.props.componentId, {
         sideMenu: {
           right: {
@@ -57,12 +60,12 @@ export default class Shop extends Component {
 
   hideSideMenu = () => {
 
-      Navigation.mergeOptions(this.props.componentId, {
-        sideMenu: {
-          left: {
-            visible: true
-          }
+    Navigation.mergeOptions(this.props.componentId, {
+      sideMenu: {
+        left: {
+          visible: true
         }
+      }
 
     })
   };
@@ -104,14 +107,15 @@ export default class Shop extends Component {
       }
     });
   }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text> Shop </Text>
-        <Button title={'toggleDrawer'} onPress={this.hideSideMenu}/>
-        <Button title={'Shop2'} onPress={this.handlePress}/>
-        <Button title={'Show Modal'} onPress={this.ShowModal}/>
-      </View>
+        <View style={styles.container}>
+          <Text> Shop </Text>
+          <Button title={'toggleDrawer'} onPress={this.hideSideMenu}/>
+          <Button title={'Shop2'} onPress={this.handlePress}/>
+          <Button title={'Show Modal'} onPress={this.ShowModal}/>
+        </View>
     );
   }
 }

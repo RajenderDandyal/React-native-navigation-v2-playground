@@ -5,7 +5,8 @@ import {Navigation} from "react-native-navigation";
 export default class DrawerLeft extends Component {
 
   handleLink = (stack, screen) => {
-    console.log(stack)
+    // first option is stack .. this.props.componentId will not work here ...
+    // specify the stack id where you want to navigate
     Navigation.mergeOptions(stack, {
       bottomTabs: {
         currentTabIndex: screen
@@ -14,15 +15,14 @@ export default class DrawerLeft extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
         <View style={styles.container}>
-          <TouchableOpacity onPress={() => this.handleLink('BottomTabId',0)}>
+          <TouchableOpacity onPress={() => this.handleLink('BottomTabId', 0)}>
             <View style={styles.links}>
               <Text> Home </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.handleLink('BottomTabId',1)}>
+          <TouchableOpacity onPress={() => this.handleLink('BottomTabId', 1)}>
             <View style={styles.links}>
               <Text> Shop </Text>
             </View>

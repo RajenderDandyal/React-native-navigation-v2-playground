@@ -45,20 +45,25 @@ Navigation.events().registerAppLaunchedListener(() => {
         visible: true,
         animate: true,
         hideOnScroll: true,
-        backButton:{
-          color:'green'
+        // leftButtons: [{ color: 'blue'}], back button disappears with this property.. provide color in component itself
+        rightButtons: [{ color: 'red'}],
+        backButton: {
+          color: 'blue'
         },
-        background:{
-          color:'pink'
+        background: {
+          color: 'pink'
         },
-        title:{
+        title: {
           color: 'blue',
-        }
+          fontSize: 18,
+          alignment:'center'
+        },
+
       },
       statusBar: {
         visible: true,
         style: 'light',
-        backgroundColor:'pink'
+        backgroundColor: 'pink'
       },
       layout: {
         backgroundColor: '#eee',
@@ -95,7 +100,7 @@ Navigation.events().registerAppLaunchedListener(() => {
             options: {
               bottomTab: {
                 text: 'Home',
-                icon: sources[0],
+                icon: require('./src/assets/images/home.png'),
               }
             }
           }
@@ -114,7 +119,7 @@ Navigation.events().registerAppLaunchedListener(() => {
             options: {
               bottomTab: {
                 text: 'Shop',
-                icon: sources[2],
+                icon: require('./src/assets/images/cart.png'),
               }
             }
           }

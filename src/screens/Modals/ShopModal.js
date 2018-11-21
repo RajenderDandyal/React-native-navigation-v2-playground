@@ -3,14 +3,14 @@ import {View, StyleSheet, Text, Button} from "react-native";
 import {Navigation} from "react-native-navigation";
 
 class MyComponent extends Component {
-  state={
-    rnsc:""
+  state = {
+    rnsc: ""
   }
   handleSubmit = (stack, screen) => {
     console.log(stack)
     Navigation.dismissModal(this.props.componentId);
 
-   // these methods don't work with modal
+    // these methods don't work with modal
     // Navigation.pop(this.props.componentId);
     /*Navigation.mergeOptions(stack, {
       bottomTabs: {
@@ -18,6 +18,7 @@ class MyComponent extends Component {
       }
     });*/
   }
+
   render() {
     console.log(this.props)
     return (
@@ -28,7 +29,7 @@ class MyComponent extends Component {
           <Text>
             {this.props.modalData}
           </Text>
-          <Button title={'Submit'} onPress={()=>this.handleSubmit('BottomTabId',1)}/>
+          <Button title={'Submit'} onPress={() => this.handleSubmit('BottomTabId', 1)}/>
         </View>
     );
   }
@@ -37,7 +38,7 @@ class MyComponent extends Component {
 export default MyComponent;
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
